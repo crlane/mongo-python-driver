@@ -10,10 +10,10 @@ Support For Special Characters In Usernames And Passwords
 
 If your username or password contains special characters (e.g. '/', ' ',
 or '@') you must ``%xx`` escape them for use in the MongoDB URI. PyMongo
-uses :meth:`~urllib.unquote_plus` to decode them. For example::
+uses :meth:`~urllib.parse.unquote_plus` to decode them. For example::
 
-  >>> import urllib
-  >>> password = urllib.quote_plus('pass/word')
+  >>> from urllib import parse
+  >>> password = parse.quote_plus('pass/word')
   >>> password
   'pass%2Fword'
   >>> MongoClient('mongodb://user:' + password + '@127.0.0.1')
